@@ -1,0 +1,15 @@
+[@main]
+你想知道万纳和沙吧克的战役？ \ \ \
+ <关于/@aboutwar> \
+
+
+[@aboutwar]
+你想知道关于万纳的战役吗， \
+下一次战役记录在<$CASTLEWARDATE>, 下午8点。\ \
+ <查看/@listwar> \
+ <返回/@main> \
+
+
+[@listwar]
+<$LISTOFWAR> \
+ <返回/@aboutwar> \

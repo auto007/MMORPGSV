@@ -1,0 +1,209 @@
+[@main]
+#SAY
+玩家：<$USERNAME>，欢迎您来到<$SERVERNAME>游戏！\
+游戏中切勿相信像你索要账户和密码的人员，那绝对是骗子。\
+游戏管理员拥有统一的标识：≮游戏管理员≯显示在其名称上方。\
+我这里可以提供账户充值的相关服务，请问您需要什么服务！？\  \ 
+
+<充值元宝/@chongzhi>    <兑换元宝/@duihuanyuanbao>    <我有月卡/@tianshu>\  \
+<我要出去/@yidong>    <意见建议/@yijian>    <二级密码/@erjimima>     <不干什么/@exit>\
+
+[@chongzhi]
+#IF
+#CALL [\充值员\元宝充值员.txt] @元宝充值员
+
+[@yijian]
+#IF
+#CALL [\意见收集员\意见收集员.txt] @意见收集员
+
+[@tianshu]
+#IF
+CheckItem 游戏月卡 1
+#SAY
+检测到您当前持有游戏月卡，请问是否进行充值！？ \ \ \ \ \
+<马上进行充值/@zengjiatianshu>    <暂时不充/@exit>
+#ELSESAY
+你的游戏月卡呢？被吃掉了吗？\ \ \ \ \
+<我再找找/@exit>
+
+[@zengjiatianshu]
+#if
+CHECKVAR HUMAN 游戏天数 < 0
+#act
+CALCVAR HUMAN 游戏天数 = 0
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+CALCVAR HUMAN 游戏天数 + 30
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+take 游戏月卡 1
+mapmove 0 333 268
+SENDMSG 6 恭喜您充值月卡成功，游戏时间增加了30天，您现在的游戏天数为<$HUMAN(游戏天数)>天！
+#elseact
+CALCVAR HUMAN 游戏天数 + 30
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+take 游戏月卡 1
+mapmove 0 333 268
+SENDMSG 6 恭喜您充值月卡成功，游戏时间增加了30天，您现在的游戏天数为<$HUMAN(游戏天数)>天！
+break
+
+[@yidong]
+#if
+CHECKVAR HUMAN 游戏天数 > 0
+#act
+mapmove 0 333 268
+sendmsg 6 月卡充值员:真搞不懂你是怎么进来的，莫不是黑客把你带进来的？现在已经把你放出去了！
+#elseact
+sendmsg 5 月卡充值员:尊敬的玩家您好，由于您当前没有可用的游戏天数，所以不能放您出去，等您充值了游戏时间就可以出去了！
+
+
+[@erjimima]
+#IF
+#CALL [\密码安全员\密码安全员.txt] @密码安全员
+
+[@duihuanyuanbao]
+尊敬的玩家您好，请选择您需要兑换的数量！\ \
+<1元宝/@1yuanbao>    <2元宝/@2yuanbao>    <5元宝/@5yuanbao>    <10元宝/@10yuanbao>    <20元宝/@20yuanbao>    <50元宝/@50yuanbao>\ \
+<100元宝/@100yuanbao>  <200元宝/@200yuanbao>  <500元宝/@500yuanbao>  <1000元宝/@1000yuanbao>  <2000元宝/@2000yuanbao>  <5000元宝/@5000yuanbao>\ \
+<土豪专用兑换10000元宝/@10000yuanbao>    <先不兑换了/@exit>
+
+[@1yuanbao]
+#IF
+CheckItem 1元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 1元宝 1
+GAMEGOLD + 1
+SENDMSG 7 恭喜您成功兑换了1个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@2yuanbao]
+#IF
+CheckItem 2元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 2元宝 1
+GAMEGOLD + 2
+SENDMSG 7 恭喜您成功兑换了2个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@5yuanbao]
+#IF
+CheckItem 5元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 5元宝 1
+GAMEGOLD + 5
+SENDMSG 7 恭喜您成功兑换了5个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@10yuanbao]
+#IF
+CheckItem 10元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 10元宝 1
+GAMEGOLD + 10
+SENDMSG 7 恭喜您成功兑换了10个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@20yuanbao]
+#IF
+CheckItem 20元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 20元宝 1
+GAMEGOLD + 20
+SENDMSG 7 恭喜您成功兑换了20个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@50yuanbao]
+#IF
+CheckItem 50元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 50元宝 1
+GAMEGOLD + 50
+SENDMSG 7 恭喜您成功兑换了50个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@100yuanbao]
+#IF
+CheckItem 100元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 100元宝 1
+GAMEGOLD + 100
+SENDMSG 7 恭喜您成功兑换了100个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@200yuanbao]
+#IF
+CheckItem 200元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 200元宝 1
+GAMEGOLD + 200
+SENDMSG 7 恭喜您成功兑换了200个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@500yuanbao]
+#IF
+CheckItem 500元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 500元宝 1
+GAMEGOLD + 500
+SENDMSG 7 恭喜您成功兑换了500个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@1000yuanbao]
+#IF
+CheckItem 1000元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 1000元宝 1
+GAMEGOLD + 1000
+SENDMSG 7 恭喜您成功兑换了1000个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@2000yuanbao]
+#IF
+CheckItem 2000元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 2000元宝 1
+GAMEGOLD + 2000
+SENDMSG 7 恭喜您成功兑换了2000个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@5000yuanbao]
+#IF
+CheckItem 5000元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 5000元宝 1
+GAMEGOLD + 5000
+SENDMSG 7 恭喜您成功兑换了5000个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？
+
+[@10000yuanbao]
+#IF
+CheckItem 10000元宝 1
+#ACT
+CLOSEMERCHANTBIGDLG
+TAKE 10000元宝 1
+GAMEGOLD + 10000
+SENDMSG 7 恭喜您成功兑换了10000个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 喂，喂，你是来骗元宝的吗？

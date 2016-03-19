@@ -1,0 +1,6 @@
+(@@InPutString)
+[@武馆教头]
+{
+#ACT
+SENDMSG 0 <$USERNAME>系统暂未开放！
+}

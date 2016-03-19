@@ -1,0 +1,19 @@
+[@main]
+#ACT
+movr d0 1 6
+movr d1 1 6
+movr d2 1 6
+inc d0 1
+inc d1 1
+inc d2 1
+playdice 3 @骰子验证
+
+[@骰子验证]
+#if
+#act
+mov d3 0
+inc d3 <$str(d0)>
+inc d3 <$str(d1)>
+inc d3 <$str(d2)>
+#say
+当前点数<$str(d3)>

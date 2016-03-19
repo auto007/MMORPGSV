@@ -1,0 +1,253 @@
+(@@sendmsg @storage @getback @@InPutString )
+;此脚为功能脚本，用于实现各种与脚本有关的功能
+;个人商店系统
+[@QueryMyShopFail]
+#IF
+CHECKLEVEL 18
+#ACT
+MESSAGEBOX 你还没有个人商店，是否创建你的个人商店？\\点击确定创建个人商店。 @创建个人商店 @取消
+#ELSESAY
+年轻人，小小年纪就想开店？你的资历还不够啊。\
+江湖险恶，你还是再历练一下吧。等到了18级再来开店吧！\ 
+开店的时候别忘记带<[开店许可证]/@开店许可证>还有10万现金哦。\
+如果没有带来，那我可不能给您办理开店手续。\
+快去到江湖中历练吧！\ \
+<谨遵教诲，我这就去闯荡江湖啦！/@exit>
+
+[@开店许可证]
+听说，开店许可证藏在比奇矿洞中尸王的身上。\
+最近有不少人带着[开店许可证]到我这里来办理开店手续。\
+少侠若是想要开店，还是先去找找[开店许可证]吧！\ \ \ \
+<我这就去找/@exit>
+
+[@创建个人商店]
+#IF
+CHECKGOLD > 100000
+CHECKITEM 开店许可证 1
+#SAY
+亲爱的玩家你好，这里可以申请开店，你可以把你的物品放到你的\
+店铺里出售给游戏中的其他玩家，你可以查询到你要出售的物品，\
+也可以把不用的物品放到店铺的仓库里。点击客户端中“店”字\
+就可以进入到你的店铺中,你也可以查询其他用户的店铺和物品，\
+可以很方便的把仓库物品和出售的物品相互转移。\
+开店需要携带<[开店许可证]/@开店许可证>以及10万现金，不知少侠是否带来了？\ 
+店铺开设后，不可改名，不可删除，每笔交易将扣除交易额2%的税款。\ \
+<准备好了，我要开店(点击输入你喜欢的店铺名称)/@@InputString1>
+#ELSESAY
+我要的十万块钱手续费和<[开店许可证]/@开店许可证>带来吗？\
+没带来，还想骗我给你办手续？ \
+你这是公然调戏国家办事人员啊？ \
+还不快走，小心我叫城管来收拾你！\ \
+<算你厉害，我这就走/@exit>
+
+[@InputString1]
+#IF
+CHECKMYSHOP
+#ACT
+MESSAGEBOX 你已经有店铺了，一个人只能开一家商铺！
+BREAK
+#IF
+CHECKSHOPNAME <$STR(S1)>
+#ACT
+MESSAGEBOX <$STR(S1)>店铺名称已经存在，请重新输入一个！
+BREAK
+#IF
+#ACT
+CREATEMYSHOP <$STR(S1)>
+[@CreateMyShopOK]
+#SAY
+恭喜，你的店铺开设成功！
+[@CreateMyShopFail]
+#SAY
+你的店铺开设失败，请再次尝试开设！
+
+;挂机设置
+[@StartAutoOnline]
+#IF
+#ACT
+StartAutoPlayGame
+SENDMSG 6 开始挂机，使用快捷键“CTRL+ALT+X”停止挂机
+
+[@StopAutoOnline]
+#IF
+#ACT
+StopAutoPlayGame
+SENDMSG 6 命令停止挂机，使用快捷键“CTRL+ALT+X”开始挂机
+
+;移动仓库
+[@StdModeFunc1]
+移动仓库为您提供以下仓库服务功能： \ 
+<存放物品/@storage>\
+<取回物品/@getback>\
+<离开/@exit>
+
+[@storage]
+需要保管什么东西?\ \ 
+<返回/@StdModeFunc1>
+
+[@getback]
+请选择需要取回的物品！\ \ 
+<返回/@StdModeFunc1>
+
+;1小时双倍
+[@StdModeFunc2]
+
+
+;2小时双倍
+[@StdModeFunc3]
+#ACT
+MOV S6 <$KILLMONEXPRATE>
+#IF
+CHECKLEVELEX > 0
+#ACT
+MUL S6 100
+MUL S6 2
+KILLMONEXPRATE <$STR(S6)> 7200
+SENDMSG 0 %s，已经购买了2个小时双倍经验时间，特别提醒中途下线，经验倍率会消失！
+break
+
+
+;1小时三倍
+[@StdModeFunc4]
+#ACT
+MOV S6 <$KILLMONEXPRATE>
+#IF
+CHECKLEVELEX > 0
+#ACT
+SENDMSG 5 不可叠加
+#ELSEACT
+MUL S6 100
+MUL S6 3
+KILLMONEXPRATE <$STR(S6)> 3600
+SENDMSG 5 %s，已经购买了1个小时三倍经验时间，特别提醒中途下线，经验倍率会消失！
+break
+
+;记忆石
+[@StdModeFunc5]
+一： <记录当前坐标/@TAGMAPINFO1> <移动到/@PMOVE1> -> <$TAGMAPNAME1> <$TAGX1> <$TAGY1>\
+二： <记录当前坐标/@TAGMAPINFO2> <移动到/@PMOVE2> -> <$TAGMAPNAME2> <$TAGX2> <$TAGY2>\
+三： <记录当前坐标/@TAGMAPINFO3> <移动到/@PMOVE3> -> <$TAGMAPNAME3> <$TAGX3> <$TAGY3>\
+四： <记录当前坐标/@TAGMAPINFO4> <移动到/@PMOVE4> -> <$TAGMAPNAME4> <$TAGX4> <$TAGY4>\
+五： <记录当前坐标/@TAGMAPINFO5> <移动到/@PMOVE5> -> <$TAGMAPNAME5> <$TAGX5> <$TAGY5>\
+六： <记录当前坐标/@TAGMAPINFO6> <移动到/@PMOVE6> -> <$TAGMAPNAME6> <$TAGX6> <$TAGY6>\ \
+<成功传送后才会消失一点.安全无毒.放心使用>\ 
+[@PMOVE1]
+#ACT
+TAGMAPMOVE 1
+[@PMOVE2]
+#ACT
+TAGMAPMOVE 2
+[@PMOVE3]
+#ACT
+TAGMAPMOVE 3
+[@PMOVE4]
+#ACT
+TAGMAPMOVE 4
+[@PMOVE5]
+#ACT
+TAGMAPMOVE 5
+[@PMOVE6]
+#ACT
+TAGMAPMOVE 6
+[@TAGMAPINFO1]
+#ACT
+TAGMAPINFO 1
+GOTO @StdModeFunc5
+[@TAGMAPINFO2]
+#ACT
+TAGMAPINFO 2
+GOTO @StdModeFunc5
+[@TAGMAPINFO3]
+#ACT
+TAGMAPINFO 3
+GOTO @StdModeFunc5
+[@TAGMAPINFO4]
+#ACT
+TAGMAPINFO 4
+GOTO @StdModeFunc5
+[@TAGMAPINFO5]
+#ACT
+TAGMAPINFO 5
+GOTO @StdModeFunc5
+[@TAGMAPINFO6]
+#ACT
+TAGMAPINFO 6
+GOTO @StdModeFunc5
+
+;2小时三倍
+[@StdModeFunc6]
+#ACT
+MOV S6 <$KILLMONEXPRATE>
+#IF
+CHECKLEVELEX > 0
+#ACT
+MUL S6 100
+MUL S6 3
+KILLMONEXPRATE <$STR(S6)> 7200
+SENDMSG 0 %s，已经购买了2个小时三倍经验时间，特别提醒中途下线，经验倍率会消失！
+break
+
+;月卡
+[@StdModeFunc7]
+#if
+CHECKVAR HUMAN 游戏天数 < 0
+#act
+CALCVAR HUMAN 游戏天数 = 0
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+CALCVAR HUMAN 游戏天数 + 30
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+take 游戏月卡 1
+SENDMSG 6 恭喜您充值月卡成功，游戏时间增加了30天，您现在的游戏天数为<$HUMAN(游戏天数)>天！
+#elseact
+CALCVAR HUMAN 游戏天数 + 30
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+take 游戏月卡 1
+SENDMSG 6 恭喜您充值月卡成功，游戏时间增加了30天，您现在的游戏天数为<$HUMAN(游戏天数)>天！
+break
+
+;1元宝
+[@StdModeFunc8]
+#IF
+#ACT
+GAMEGOLD + 1
+SENDMSG 7 恭喜您成功兑换了1个元宝，您的元宝数量为：<$GAMEGOLD>个，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 充值未成功
+
+;全服喊话
+[@UserCmd1]
+#IF
+CHECKGAMEGOLD > 1
+#ACT
+MOV S1 <$PARAMS>
+GAMEGOLD - 2
+GuildNoticeMsg 255 253 <$USERNAME>:<$STR(S1)>
+#ELSEACT
+SENDMSG 7 使用千里传音需要支付2个元宝！
+
+[@UserCmd2]
+#IF
+CHECKVAR HUMAN 游戏天数 > 0
+#ACT
+SENDMSG 6 尊敬的玩家<$USERNAME>您好，您现在的游戏天数为<$HUMAN(游戏天数)>天，祝您游戏愉快！
+#ELSEACT
+SENDMSG 5 尊敬的玩家<$USERNAME>您好，您现在处于未充值状态，请尽快充值！
+
+;升级触发
+[@PlayLevelUp]
+;7级恢复发言并传送至月卡充值
+#if
+checklevelex = 7
+#act
+Gmexecute ReleaseShutup Self
+map CZ001
+sendmsg 7 恭喜您升到了7级，您的禁言已恢复！
+sendmsg 7 游戏系统设置为7级充值月卡，请找月卡充值员进行充值！
+break
+
+#if
+checklevelex = 20
+#act
+give 金币 10000
+SENDMSG 0 恭喜玩家：<$USERNAME>，升到了20级，系统赠送他10000金币！
+break

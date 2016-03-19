@@ -1,0 +1,85 @@
+(@@InPutString )
+[@元宝充值员]
+{
+#ACT
+MOV S0
+MOV S3
+MOV S4
+MOV S5
+#say
+亲爱的玩家，为了服务器更好的发展，现已提供金币充值服务！\
+我们提供1元/10个元宝、5元/55个元宝、10元/115个元宝\
+不等的充值服务，请您选择充值或取回金币服务！\ \
+<前往充值页面进行充值/@wangdian>\ \
+<取回10个元宝/@chong1>    <取回55个元宝/@chong5>    <取回115个元宝/@chong10>\ \
+<暂不充值/@exit>\
+
+[@wangdian]
+#IF
+#ACT
+WebBrowser http://mir2.hypc120.com/shop/
+
+[@chong1]
+现在可以为您提供金币提现服务，您需要提现吗？\ 
+卡号和密码的输入形式请采用以下形式输入：\
+<XXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXX/FCOLOR=56>\
+卡号和密码均为20位字符，如有问题请联系管理员QQ：121472540\ \
+<输入卡号进行提现/@@InPutString0>     <暂时不用/@exit>
+
+[@InPutString0]
+#IF
+CHECKTEXTLIST ..\QuestDiary\充值\1元.txt <$STR(S0)>
+#ACT
+DELTEXTLIST ..\QuestDiary\充值\1元.txt <$STR(S0)>
+INC S5 玩家：<$USERNAME>的充值卡密为：[<$STR(S0)>]，充值时间为：[<$YEAR>年<$MONTH>月<$DAY>日<$HOUR>点<$MINUTE>分<$SECOND>秒]
+AddTextListEx ..\QuestDiary\充值\1元充值记录.txt <$STR(S5)> 0
+GAMEGOLD + 10
+SENDMSG 1 玩家<$USERNAME>，已成功充值了10元宝！
+CLOSEMERCHANTBIGDLG
+#ELSEACT
+SENDMSG 5 玩家<$USERNAME>，您的卡密不正确，请确认后再来！
+
+[@chong5]
+现在可以为您提供金币提现服务，您需要提现吗？\ 
+卡号和密码的输入形式请采用以下形式输入：\
+<XXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXX/FCOLOR=56>\
+卡号和密码均为20位字符，如有问题请联系管理员QQ：121472540\ \
+<输入卡号进行提现/@@InPutString3>     <暂时不用/@exit>
+
+[@InPutString3]
+#IF
+CHECKTEXTLIST ..\QuestDiary\充值\5元.txt <$STR(S3)>
+#ACT
+DELTEXTLIST ..\QuestDiary\充值\5元.txt <$STR(S3)>
+INC S5 玩家：<$USERNAME>的充值卡密为：[<$STR(S3)>]，充值时间为：[<$YEAR>年<$MONTH>月<$DAY>日<$HOUR>点<$MINUTE>分<$SECOND>秒]
+AddTextListEx ..\QuestDiary\充值\5元充值记录.txt <$STR(S5)> 0
+GAMEGOLD + 55
+SENDMSG 1 玩家<$USERNAME>，已成功充值了55元宝！
+CLOSEMERCHANTBIGDLG
+#ELSEACT
+SENDMSG 5 玩家<$USERNAME>，您的卡密不正确，请确认后再来！
+
+
+
+[@chong10]
+现在可以为您提供金币提现服务，您需要提现吗？\ 
+卡号和密码的输入形式请采用以下形式输入：\
+<XXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXX/FCOLOR=56>\
+卡号和密码均为20位字符，如有问题请联系管理员QQ：121472540\ \
+<输入卡号进行提现/@@InPutString4>     <暂时不用/@exit>
+
+[@InPutString4]
+#IF
+CHECKTEXTLIST ..\QuestDiary\充值\10元.txt <$STR(S4)>
+#ACT
+DELTEXTLIST ..\QuestDiary\充值\10元.txt <$STR(S4)>
+INC S5 玩家：<$USERNAME>的充值卡密为：[<$STR(S4)>]，充值时间为：[<$YEAR>年<$MONTH>月<$DAY>日<$HOUR>点<$MINUTE>分<$SECOND>秒]
+AddTextListEx ..\QuestDiary\充值\10元充值记录.txt <$STR(S5)> 0
+GAMEGOLD + 115
+SENDMSG 1 玩家<$USERNAME>，已成功充值了115元宝！
+CLOSEMERCHANTBIGDLG
+#ELSEACT
+SENDMSG 5 玩家<$USERNAME>，您的卡密不正确，请确认后再来！
+
+
+}

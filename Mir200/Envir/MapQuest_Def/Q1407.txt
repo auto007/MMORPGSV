@@ -1,0 +1,23 @@
+[@main]
+#IF
+check [409] 1
+#ACT
+break
+
+#IF
+check [408] 1
+#SAY
+(现在我要回去找季正询问更多信息...)\
+#ACT
+break
+
+#IF
+random 5
+check [407] 1
+#SAY
+只是看着它就让我感觉嗜血...\
+现在我要回去找季正询问更多信息。\
+#ACT
+give 赤血魔剑碎块 1
+SET [408] 1
+

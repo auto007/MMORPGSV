@@ -1,0 +1,31 @@
+[@main]
+#IF
+check [405] 1
+#ACT
+break
+
+#IF
+check [404] 1
+#ACT
+goto @next
+break
+
+#IF
+random 5
+check [403] 1
+#ACT
+SET [404] 1
+give 水晶 1
+#SAY
+嗯.... \
+这个就是天尊提起过的水晶。\
+(有了这个水晶，我就可以去恶魔祭坛找季正了。)\
+
+
+[@next]
+#IF
+random 20
+#SAY
+恶魔祭坛在哪里？\
+
+

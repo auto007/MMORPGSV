@@ -1,0 +1,132 @@
+[@登陆设置]
+{
+;封角色
+#IF
+CHECKNAMELIST ..\QuestDiary\数据文件\封角色.txt
+#ACT
+SENDMSG 5 玩家%s您好，由于您违反游戏相关规定，您的账户被封禁，请更换角色后进行重新登陆游戏！如果您继续违反游戏相关规定，您的账户将被永久封禁！
+kick
+break
+
+;封账号
+#IF
+CHECKACCOUNTLIST ..\QuestDiary\数据文件\封账号.txt
+#ACT
+SENDMSG 5 玩家%s您好，由于您多次违法游戏相关规定，您的账号已被永久封禁！如果您继续违反游戏相关规定，您的网络IP地址将被永久封禁！
+kick
+break
+
+;封IP
+#IF
+CHECKIPLIST ..\QuestDiary\数据文件\封地址.txt
+#ACT
+SENDMSG 5 玩家%s您好，由于您多次违法游戏相关规定，管理员已经限制了您当前IP地址进行游戏！
+kick
+break
+
+;新玩家登陆
+#IF
+ISNEWHUMAN
+#ACT
+CALCVAR HUMAN 游戏天数 = 0
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+GMEXECUTE SHUTUP SELF 9999
+SENDMSG 5 玩家〖%s〗您好，欢迎您来到<$SERVERNAME>进行游戏，请前往NPC“助理阿妍”处接取任务，开始你的传奇之旅！
+sendmsg 7 为了净化游戏环境，服务器设置低于7级玩家不能发言，升至7级后将自动解除禁言！
+break
+
+;禁言
+#if
+checklevelex < 7
+#act
+GMEXECUTE SHUTUP SELF 9999
+sendmsg 7 为了净化游戏环境，服务器设置低于7级玩家不能发言，升至7级后将自动解除禁言！
+
+;登陆日期判断
+#IF
+CHECKVAR HUMAN 登陆日期 = <$YEAR><$MONTH><$DAY>
+#act
+#elseact
+goto @游戏天数扣除
+CALCVAR HUMAN 登陆日期 = <$YEAR><$MONTH><$DAY>
+SAVEVAR HUMAN 登陆日期 ..\QuestDiary\数据文件\登陆日期.txt
+
+;充值判断
+#if
+CheckLevelEx < 7
+#act
+sendmsg 7 您现在处于免费模式，可以试玩至7级，7级后会带您去往游戏充值地图!
+#elseact
+goto @充值检测
+
+;管理员登陆
+#IF
+ISADMIN
+#ACT
+SETRANKLEVELNAME %s\≮游戏管理员≯
+break
+
+;沙城城主登陆
+#IF
+ISCASTLEMASTER
+#ACT
+SETRANKLEVELNAME %s\沙巴克城主
+SENDMSG 0 号令天下的沙城主『<$USERNAME>』进入了<$SERVERNAME>！
+break
+
+;经验倍数
+#IF
+CHECKLEVELEX < 23
+#ACT
+KILLMONEXPRATE 2000 172800
+SENDMSG 5 尊敬的玩家:按照你的等级看来，现在的经验倍数是20倍，还需要继续努力哦。
+
+#IF
+CHECKLEVELEX > 22
+CHECKLEVELEX < 31
+#ACT
+KILLMONEXPRATE 1000 172800
+SENDMSG 5 尊敬的玩家:按照你的等级看来，现在的经验倍数是10倍，还需要继续努力哦。
+
+#IF
+CHECKLEVELEX > 30
+CHECKLEVELEX < 36
+#ACT
+KILLMONEXPRATE 500 172800
+SENDMSG 5 尊敬的玩家:按照你的等级看来，现在的经验倍数是5倍，还需要继续努力哦。
+
+
+#IF
+CHECKLEVELEX > 35
+CHECKLEVELEX < 41
+#ACT
+KILLMONEXPRATE 300 172800
+SENDMSG 5 尊敬的玩家:按照你的等级看来，现在的经验倍数是3倍，还需要继续努力哦。
+
+#IF
+CHECKLEVELEX > 40
+#ACT
+KILLMONEXPRATE 200 172800
+SENDMSG 5 尊敬的玩家:按照你的等级看来，现在的经验倍数是2倍，还需要继续努力哦，最高等级为50级。
+
+[@充值检测]
+#if
+CHECKVAR HUMAN 游戏天数 < 1
+#act
+map CZ001
+sendmsg 5 您的游戏天数已到期，请您在充值后进行游戏！
+#elseact
+sendmsg 7 尊敬的玩家<$USERNAME>您好，您的游戏时间还有<$HUMAN(游戏天数)>天，<$SERVERNAME>游戏制度，当天登陆游戏扣除一天游戏时间，当天不登录，您的游戏天数将不会减少，祝您游戏愉快！
+break
+
+[@游戏天数扣除]
+#if
+CHECKVAR HUMAN 游戏天数 < 0
+#act
+CALCVAR HUMAN 游戏天数 = 0
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+#elseact
+CALCVAR HUMAN 游戏天数 - 1
+SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+break
+}

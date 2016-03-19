@@ -1,0 +1,35 @@
+(@@InPutString)
+[@意见收集员]
+{
+#ACT
+MOV S1
+MOV S2
+#SAY
+尊敬的玩家，如果您在游戏中发现错误，请您留言告知我们。\
+您将获得一万到一百万不等金币的奖励。\
+如果您有好的意见或建议也可以告知我们。\ 
+<请勿恶意留言，如果您恶意留言，将会受到同等处罚哦！/FCOLOR=56>\ \ \
+
+<签写留言/@@inputstring1>    <网页留言/@wangye>
+
+
+
+[@inputstring1]
+#IF
+#ACT
+INC S2 [<$USERNAME>]
+INC S2 的留言：
+AddTextListEx ..\QuestDiary\玩家留言\玩家留言.txt <$STR(S1)> 0
+AddTextListEx ..\QuestDiary\玩家留言\玩家留言.txt <$STR(S2)> 0
+#SAY
+您的留言已提交，请您等待管理员的确认，感谢您的支持！\ \ \ \ \
+
+<不客气/@exit>
+
+
+[@wangye]
+#IF
+#ACT
+WebBrowser http://mir2.hypc120.com/liuyan/
+
+}

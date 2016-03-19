@@ -1,0 +1,206 @@
+[@传送员]
+{
+#SAY
+\  <---------安全区域(每次传送花费1000金币)----------/SCOLOR=253>\
+\  ※ <比奇城堡/@bwmove> ※ <银杏山谷/@ginmove> ※ <比奇村庄/@brdmove> ※ <比奇皇宫/@bqhg> ※\
+\  ※ <毒蛇山谷/@dsmove> ※ <盟重土城/@mwmove> ※ <沙城区域/@sbkmove> ※ <白日天门/@wwmove> ※\
+\  <---------险恶区域(每次传送花费2000金币)----------/SCOLOR=253>\
+\  ※ <骷髅洞穴/@klmove> ※ <废矿区域/@feikuang> ※ <沃玛寺庙/@wmmove> ※ <猪洞入口/@zdmove> ※ \
+\  ※ <蜈蚣洞口/@wgmove> ※ <祖玛寺庙/@zmmove> ※ <丛林迷宫/@cymove> ※ <未知暗殿/@wzmove> ※\
+\  <---------------------其他信息---------------------/SCOLOR=253>\
+\  ※ <元宝充值/@chongzhi> ※ <意见收集/@yijian> ※ <BOSS查询/@chaxun> ※ <比奇赌场/@dcmove>\
+\  ※ <个人信息/@SelfInfo> ※ <二级密码/@erjimima> ※\
+#ELSESAY
+客官，您的钱袋子是让黑社会给打劫了吗？\
+咋的兜比你的脸还干净呢？快去凑些钱再来打飞的吧！\ \ \ \ \ 
+<小样，你别瞧不起人，以前俺也是土豪！/@exit>
+
+
+[@SelfInfo]
+#IF
+#ACT
+messagebox 以下为你当前的部份信息:\人物名称:<$USERNAME>　等级:<$LEVEL>　经验值:<$EXP>/<$MAXEXP>\体力值:<$HP>/<$MAXHP>　魔法值:<$MP>/<$MAXMP>　PK点数:<$PKPOINT>\防御力:<$AC>/<$MAXAC>　魔防力:<$MAC>/<$MAXMAC>\攻击力:<$DC>/<$MAXDC>　魔法:<$MC>/<$MAXMC>　道术:<$SC>/<$MAXSC>\背包重量:<$BW>/<$MAXBW>　负量:<$WW>/<$MAXWW>　腕力:<$HW>/<$MAXHW>\声望值:<$CREDITPOINT>　能量:<$GAMEPOINT>　<$GAMEGOLDNAME>:<$GAMEGOLD>\
+
+
+;其他信息
+[@dcmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove B010 40 50
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@yijian]
+#IF
+#CALL [\意见收集员\意见收集员.txt] @意见收集员
+
+[@chaxun]
+#IF
+#CALL [\查询员\查询员.txt] @查询员
+
+
+[@chongzhi]
+#IF
+#CALL [\充值员\元宝充值员.txt] @元宝充值员
+
+
+[@erjimima]
+#IF
+#CALL [\密码安全员\密码安全员.txt] @密码安全员
+
+;安全区域
+[@bwmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove 0 333 268
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@ginmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove 0 634 612
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@brdmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove 0 288 615
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@bqhg]
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove 0122 22 32
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@dsmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove 2 502 488
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@mwmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove 3 330 330
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@sbkmove] 
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove 3 716 406
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@wwmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 1000
+mapmove 11 177 324
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+;险恶区域
+[@klmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 2000
+give 回城卷 1
+mapmove D011 149 356
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@feikuang]
+#IF
+checkgold 1000
+#ACT
+take 金币 2000
+give 回城卷 1
+mapmove D401 27 177
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@wmmove] 
+#IF
+checkgold 1000
+#ACT 
+take 金币 2000
+give 回城卷 1
+mapmove D021 68 67
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@zdmove] 
+#IF
+checkgold 1000
+#ACT 
+take 金币 2000
+give 回城卷 1
+mapmove D710 28 19
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@wgmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 2000
+give 回城卷 1
+mapmove D601 207 227
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@zmmove]
+#IF
+checkgold 1000
+#ACT
+take 金币 2000
+give 回城卷 1
+mapmove 0157 14 20
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@cymove]
+#IF
+checkgold 1000
+#ACT
+take 金币 2000
+give 回城卷 1
+mapmove 12 324 467
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+
+[@wzmove]
+#IF
+checkgold 1000
+#ACT 
+take 金币 2000
+give 回城卷 1
+mapmove M001 202 11
+#ELSESAY
+你的金币不够呀，我无法将你送去你想去的地方！
+}

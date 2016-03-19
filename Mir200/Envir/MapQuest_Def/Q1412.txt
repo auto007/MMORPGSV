@@ -1,0 +1,15 @@
+[@main]
+#IF
+check [413] 1
+#ACT
+break
+
+#IF
+random 5
+check [412] 1
+#SAY
+(你已经得到邪恶巨人心脏了，现在带着这两件物品去杀死 \
+赤月恶魔吧！)\ \ 
+#ACT
+give 邪恶巨人心脏 1
+SET [413] 1

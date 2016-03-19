@@ -1,0 +1,22 @@
+[@Login]
+#if
+isnewhuman
+#act
+CreateFile ..\QuestDiary\绑定IP\<$USERNAME>.txt
+
+
+#IF
+CHECKLEVELEX > 0
+#ACT
+VAR Integer HUMAN 游戏天数
+VAR String HUMAN LoginPassWord
+VAR Integer HUMAN LoginPassWordStatus
+VAR Integer HUMAN LoginPassWordNum
+VAR STRING HUMAN 登陆日期
+LOADVAR HUMAN LoginPassWord ..\QuestDiary\登陆\登陆密码.txt
+LOADVAR HUMAN LoginPassWordStatus ..\QuestDiary\登陆\登陆密码.txt
+LOADVAR HUMAN LoginPassWordNum ..\QuestDiary\登陆\登陆密码.txt
+LOADVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
+LOADVAR HUMAN 登陆日期  ..\QUESTDIARY\数据文件\登陆日期.txt
+#CALL [\登陆\二级密码.txt] @二级验证
+#CALL [\登陆\登陆脚本.txt] @登陆设置

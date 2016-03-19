@@ -1,0 +1,130 @@
+[@查询员]
+{
+#IF
+checkgold 20000
+#ACT
+#SAY
+客官您好，我这里可以查询高级地图中BOSS的击杀状态，\
+每次只需要支付2万金币即可进行查询。\
+请问您现在是否需要查询？\ \ \
+<这点小钱，我现在就要查询！/@赤月恶魔>        <算了，我还是不查了！/@exit>
+#ELSESAY
+钱都没带够，还想来打听机密消息？快走开！\ \ \ \ 
+
+
+<这就走开/@exit>
+
+
+[@赤月恶魔]
+#ACT
+Take 金币 20000
+#IF
+CheckMapSameMonCount D10062 赤月恶魔 > 0
+#ACT
+MOV P10 250
+GOTO @赤月人
+#ELSEACT
+MOV P10 56
+GOTO @赤月人
+
+[@赤月人]
+#IF
+CheckMapHumanCount D10062 > 0
+#ACT
+MOV P11 250
+GOTO @沃玛神殿
+#ELSEACT
+MOV P11 56
+GOTO @沃玛神殿
+
+[@沃玛神殿]
+#IF
+CheckMapSameMonCount D024 沃玛教主 > 0
+#ACT
+MOV P12 250
+GOTO @沃玛人
+#ELSEACT
+MOV P12 56
+GOTO @沃玛人
+
+[@沃玛人]
+#IF
+CheckMapHumanCount D024 > 0
+#ACT
+MOV P13 250
+GOTO @触龙神
+#ELSEACT
+MOV P13 56
+GOTO @触龙神
+
+[@触龙神]
+#IF
+CheckMapSameMonCount D606 触龙神 > 0
+#ACT
+MOV P14 250
+GOTO @触龙人
+#ELSEACT
+MOV P14 56
+GOTO @触龙人
+
+[@触龙人]
+#IF
+CheckMapHumanCount D606 > 0
+#ACT
+MOV P15 250
+GOTO @石墓七层
+#ELSEACT
+MOV P15 56
+GOTO @石墓七层
+
+[@石墓七层]
+#IF
+CheckMapSameMonCount D717 白野猪0 > 0
+#ACT
+MOV P16 250
+GOTO @石墓人
+#ELSEACT
+MOV P16 56
+GOTO @石墓人
+
+[@石墓人]
+#IF
+CheckMapHumanCount D717 > 0
+#ACT
+MOV P17 250
+GOTO @教主之家
+#ELSEACT
+MOV P17 56
+GOTO @教主之家
+
+[@教主之家]
+#IF
+CheckMapSameMonCount D515 祖玛教主 > 0
+#ACT
+MOV P18 250
+GOTO @祖玛人
+#ELSEACT
+MOV P18 56
+GOTO @祖玛人
+
+[@祖玛人]
+#IF
+CheckMapHumanCount D515 > 0
+#ACT
+MOV P19 250
+GOTO @查询结果
+#ELSEACT
+MOV P19 56
+GOTO @查询结果
+
+[@查询结果]
+#SAY
+BOSS状态 [{◆/FCOLOR=250}未击杀] [{◆/FCOLOR=56}已击杀]  [{●/FCOLOR=250}地图内有人] [{●/FCOLOR=56}地图内无人]\
+=============================================================\
+<沃玛神殿地图的→/FCOLOR=151><沃玛教主/FCOLOR=70><→状态为：/FCOLOR=151><◆ /FCOLOR=<$STR(p12)>><→地图人员状态为：/FCOLOR=151><●/FCOLOR=<$STR(P13)>>\
+<死亡棺材地图的→/FCOLOR=151><触 龙 神/FCOLOR=70><→状态为：/FCOLOR=151><◆ /FCOLOR=<$STR(p14)>><→地图人员状态为：/FCOLOR=151><●/FCOLOR=<$STR(P15)>>\
+<石墓七层地图的→/FCOLOR=151><白 野 猪/FCOLOR=70><→状态为：/FCOLOR=151><◆ /FCOLOR=<$STR(p16)>><→地图人员状态为：/FCOLOR=151><●/FCOLOR=<$STR(P17)>>\
+<教主之家地图的→/FCOLOR=151><祖玛教主/FCOLOR=70><→状态为：/FCOLOR=151><◆ /FCOLOR=<$STR(p18)>><→地图人员状态为：/FCOLOR=151><●/FCOLOR=<$STR(P19)>>\
+<赤月魔穴地图的→/FCOLOR=151><赤月恶魔/FCOLOR=70><→状态为：/FCOLOR=151><◆ /FCOLOR=<$STR(p10)>><→地图人员状态为：/FCOLOR=151><●/FCOLOR=<$STR(P11)>>\
+=============================================================\
+}

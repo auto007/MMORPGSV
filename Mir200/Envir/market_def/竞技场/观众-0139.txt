@@ -1,0 +1,689 @@
+[@main]
+#IF
+checklevel 50
+#SAY
+快去，准备好后...去战斗!\ \
+哦， 我想查看可以在哪些  <位置/@spawnlist>  怪物进行战斗？\
+#ELSESAY
+这个功能有级别限制的!!\ \
+ <离开/@exit>\
+
+
+[@spawnlist]
+#SAY
+我知道自己的能力\
+这些位置我都知道啊，我想去看看\
+究竟有些什么怪物？\ \
+<比奇城/@bichon>  <毒蛇山谷/@snakevalley>  <盟重/@mong>  <沃玛森林/@woomy>\
+<沃玛寺庙/@woomat>  <自然洞穴/@natural>  <半兽古墓/@omac>  <僵尸洞/@mines>  <祖玛阁/@zuma>\
+<蜈蚣洞/@bugc>  <祖玛寺庙/@st>  <蜘蛛洞/@spiderc>\ \
+
+
+[@bichon]
+#SAY
+<鸡/@hen>  <鹿/@deer>  <半兽人/@oma>  <毒蜘蛛/@spitting>  <蛤蟆/@yob>  <钉耙猫/@hookcat>\
+<多钩猫/@rakecat>  <稻草人/@scarecrow>  <森林雪人/@cplant>\ \
+< 返回/@spawnlist>\
+
+
+[@snakevalley]
+#SAY
+<蛤蟆/@yob>，<钉耙猫/@hookcat>，<多钩猫/@rakecat>，<森林雪人/@cplant>，<红蛇/@rsnake>\
+<虎蛇/@tsnake>，<毒蜘蛛/@spitting>\ \
+<返回/@spawnlist>\
+
+
+[@mong]
+#SAY
+<羊/@sheep>，<猎鹰/@skystinger>，<盔甲虫/@shellnipp>，<威思而小虫/@viscworm>，<多角虫/@keratoid>\
+<巨型多角虫/@gkeratoid>，<狼/@wolf>，<沙虫/@sandworm>，<虎蛇/@tsnake>\ \
+<返回/@spawnlist>\
+
+
+[@woomy]
+#SAY
+<森林雪人/@fyeti>，<半兽人/@oma>，<半兽战士/@omaf>，<半兽勇士/@omaw>，<毒蜘蛛/@spitting>\
+<钉耙猫/@rakecat>，<多钩猫/@hookcat>，<食人花/@cplant>\ \
+<返回/@spawnlist>\
+
+
+[@woomat]
+#SAY
+<山洞蝙蝠/@cavebat>，<洞蛆/@cavemag>，<暗黑战士/@dark>，<粪虫/@dung>，<沃玛战士/@woomsold>\
+<沃玛勇士/@woomfight>，<沃玛战将/@woomwar>，<沃玛护卫/@woomguard>，<沃玛教主/@woomt>\ \
+<返回/@spawnlist>\
+
+
+[@natural]
+#SAY
+<山洞蝙蝠/@cavebat>，<洞蛆/@cavemag>，<蝎子/@scorp>，<骷髅/@skele>，<掷斧骷髅/@axeskele>\
+<骷髅战士/@bonefight>，<骷髅战将/@bonewar>，<骷髅精灵/@bonel>\ \
+<返回/@spawnlist>\
+
+
+[@omac]
+#SAY
+<山洞蝙蝠/@cavebat>，<洞蛆/@cavemag>，<蝎子/@scorp>，<骷髅/@skele>，<掷斧骷髅/@axeskele>\
+<骷髅战士/@bonefight>，<骷髅战将/@bonewar>，<骷髅精灵/@bonel>\ \
+<返回/@spawnlist>\
+
+
+[@mines]
+#SAY
+<洞蛆/@cavemag>，<僵尸1/@zom1>，<僵尸2/@zom2>，<僵尸3/@zom3>，<僵尸4/@zom4>，<僵尸5/@zom5>\
+<尸王/@ghoul>\ \
+<返回/@spawnlist>\
+
+
+[@zuma]
+#SAY
+<楔蛾/@wedge>，<大老鼠/@bigrat>，<祖玛弓箭手/@zumarch>，<祖玛雕像/@zumstat>，<祖玛卫士/@zumguard>\
+<角蝇/@bbm>，<蝙蝠/@bb>，<祖玛教主/@zumataur>\ \
+<返回/@spawnlist>\
+
+
+[@bugc]
+#SAY
+<蜈蚣/@centi>，<黑色恶蛆/@blackmag>，<跳跳蜂/@bee>，<巨型蠕虫/@gworm>，<钳虫/@tongs>\
+<邪恶钳虫/@etongs>，<触龙神/@ecenti>\ \
+<返回/@spawnlist>\
+
+
+[@st]
+#SAY
+<楔蛾/@wedge>，<角蝇/@bbm>，<蝙蝠/@bb>，<红野猪/@rboar>，<黑野猪/@bboar>\
+<白野猪/@wboar>，<蝎蛇/@sscorp>，<邪恶蝎蛇/@esnake>\ \
+<返回/@spawnlist>\
+
+
+[@spiderc]
+#SAY
+<月魔蜘蛛/@spidbat>，<钢牙蜘蛛/@gspid>，<天狼蜘蛛/@vspid>，<黑锷蜘蛛/@bspid>，<幻影蜘蛛/@rspid>\
+<花吻蜘蛛/@lspid>，<蜘蛛/@larva>，<血巨人/@bape>，<邪恶巨人/@eape>，<赤月恶魔/@rme>\ \
+<返回/@spawnlist>\
+
+
+;subs made by list。pl
+[@hen]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 鸡 1 1
+close
+
+[@deer]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 鹿 1 1
+close
+
+[@oma]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 半兽人 1 1
+close
+
+[@spitting]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 毒蜘蛛 1 1
+close
+
+[@yob]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 蛤蟆 1 1
+close
+
+[@hookcat]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 钉耙猫 1 1
+close
+
+[@rakecat]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 多钩猫 1 1
+close
+
+[@scarecrow]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 稻草人 1 1
+close
+
+[@cplant]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 森林雪人 1 1
+close
+
+[@rsnake]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen RedSnake 1 1
+close
+
+[@tsnake]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 虎蛇 1 1
+close
+
+[@sheep]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 羊 1 1
+close
+
+[@skystinger]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 猎鹰 1 1
+close
+
+[@shellnipp]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 盔甲虫 1 1
+close
+
+[@viscworm]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 威思而小虫 1 1
+close
+
+[@keratoid]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 多角虫 1 1
+close
+
+[@gkeratoid]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 巨型多角虫 1 1
+close
+
+[@wolf]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 狼 1 1
+close
+
+[@sandworm]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 沙虫 1 1
+close
+
+[@fyeti]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 森林雪人 1 1
+close
+
+[@omaf]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 半兽战士 1 1
+close
+
+[@omaw]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 半兽勇士 1 1
+close
+
+[@cavebat]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 山洞蝙蝠 1 1
+close
+
+[@cavemag]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 洞蛆 1 1
+close
+
+[@dark]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 暗黑战士 1 1
+close
+
+[@dung]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 粪虫 1 1
+close
+
+[@woomsold]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 沃玛战士 1 1
+close
+
+[@woomfight]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 沃玛勇士 1 1
+close
+
+[@woomwar]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 沃玛战将 1 1
+close
+
+[@woomguard]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 沃玛护卫 1 1
+close
+
+[@woomt]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 沃玛教主 1 1
+close
+
+[@scorp]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 蝎子 1 1
+close
+
+[@skele]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 骷髅 1 1
+close
+
+[@axeskele]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 掷斧骷髅 1 1
+close
+
+[@bonefight]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 骷髅战士 1 1
+close
+
+[@bonewar]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 骷髅战将 1 1
+close
+
+[@bonel]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 骷髅精灵 1 1
+close
+
+[@zom1]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 僵尸1 1 1
+close
+
+[@zom2]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 僵尸2 1 1
+close
+
+[@zom3]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 僵尸3 1 1
+close
+
+[@zom4]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 僵尸4 1 1
+close
+
+[@zom5]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 僵尸5 1 1
+close
+
+[@ghoul]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 尸王 1 1
+close
+
+[@wedge]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 楔蛾 1 1
+close
+
+[@bigrat]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 大老鼠 1 1
+close
+
+[@zumarch]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 祖玛弓箭手 1 1
+close
+
+[@zumstat]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 祖玛雕像 1 1
+close
+
+[@zumguard]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 祖玛卫士 1 1
+close
+
+[@zumataur]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 祖玛教主 1 1
+close
+
+[@bbm]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 角蝇 1 1
+close
+
+[@bb]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 蝙蝠 1 1
+close
+
+[@centii]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 蜈蚣 1 1
+close
+
+[@blackmag]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 黑色恶蛆 1 1
+close
+
+[@bee]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 跳跳蜂 1 1
+close
+
+[@gworm]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 巨型蠕虫 1 1
+close
+
+[@tongs]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 钳虫 1 1
+close
+
+[@etongs]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 邪恶钳虫 1 1
+close
+
+[@ecenti]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 触龙神 1 1
+close
+
+[@rboar]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 红野猪 1 1
+close
+
+[@bboar]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 黑野猪 1 1
+close
+
+[@wboar]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 白野猪 1 1
+close
+
+[@sscorp]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 蝎蛇 1 1
+close
+
+[@esnake]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 邪恶蝎蛇 1 1
+close
+
+[@spidbat]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 月魔蜘蛛 1 1
+close
+
+[@gspid]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 钢牙蜘蛛 1 1
+close
+
+[@vspid]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 天狼蜘蛛 1 1
+close
+
+[@bspid]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 黑锷蜘蛛 1 1
+close
+
+[@rspid]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 幻影蜘蛛 1 1
+close
+
+[@lspid]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 花吻蜘蛛 1 1
+close
+
+[@larva]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 蜘蛛 1 1
+close
+
+[@bape]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 血巨人 1 1
+close
+
+[@eape]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 邪恶巨人 1 1
+close
+
+[@rme]
+#ACT
+Param1 0139
+Param2 21
+Param3 25
+MonGen 赤月恶魔 1 1
+close

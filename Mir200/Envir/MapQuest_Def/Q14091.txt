@@ -1,0 +1,13 @@
+[@main]
+#IF
+check [410] 1
+#ACT
+break
+
+#IF
+check [409] 1
+#SAY
+快去帮我找来赤月恶魔油...\
+然后把它带到我这里来。 \ \
+#ACT
+SET [410] 1

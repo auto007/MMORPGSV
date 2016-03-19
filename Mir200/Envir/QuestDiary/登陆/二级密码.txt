@@ -1,0 +1,64 @@
+[@二级验证]
+{
+#if
+checkvar human LoginPassWord =
+#act
+MESSAGEBOX 温馨提示：为了确保您的账号安全，\请尽快前往各大主城的综合信息员处设置二级密码。\
+break
+
+#if
+checkiplist ..\QuestDiary\绑定IP\<$USERNAME>.txt
+#act
+sendmsg 7 本次登陆的IP地址与您以前登陆的IP符合，通过验证。
+break
+#elsesay
+由于检测到您目前的登陆IP段与以前不同。\
+请输入您的二级密码以正常游戏。\ \ \
+【<输入二级密码/@@InPutString51>】
+
+#elseact
+ChangeModeEx 2 10 10
+ChangeModeEx 10 10 10
+DelayCall 10000 @KICKIPLIST
+messagebox 由于检测到您目前的登陆IP段与以前不同。\请在10秒内输入您的二级密码以正常游戏。
+break
+
+[@InPutString51]
+#if
+checkvar human LoginPassWord = <$STR(S51)>
+#ACT
+ADDIPLIST ..\QuestDiary\绑定IP\<$USERNAME>.txt
+SENDMSG 7 二级登陆密码验证通过，当前IP地址已经加入到常用IP列表中。
+sendmsg 7 如果您是网吧用户，为了防止同网吧盗号现象，您可以到二级密码特使处清除常用IP列表，下次登陆时需要输入二级密码方能正常游戏。
+ChangeModeEx 10 1 0
+ChangeModeEx 2 1 0
+ClearDelayGoto 0
+close
+break
+#elseact
+CALCVAR HUMAN LoginPassWordNum + 1
+SAVEVAR HUMAN LoginPassWordNum ..\QuestDiary\登陆\登陆密码.txt
+#if
+checkvar human LoginPassWordNum > 4
+#say
+密码输入错误次数过多，请小退后重新登陆。\
+您已经输入密码错误<$HUMAN(LoginPassWordNum)>次，系统自动踢您下线。\
+#act
+ClearDelayGoto 0
+kick
+messagebox 对不起，您已经累积输入密码错误<$HUMAN(LoginPassWordNum)>次。\系统将自动踢您下线，以后每次登陆均只有一次输入密码的机会。\更改密码可以清空此数值，请到二级密码特使处更改密码。
+break
+#elsesay
+对不起，您的密码输入有误，请重新输入！\
+您已经输入密码错误<$HUMAN(LoginPassWordNum)>次，达到5次系统自动踢您下线。\
+请输入您的二级密码以正常游戏。\ \ \
+【<输入二级密码/@@InPutString51>】
+
+[@KICKIPLIST]
+#IF
+CHECKLEVELEX > 0
+#ACT
+kick
+MESSAGEBOX 对不起，您没有通过二级密码输入验证，系统踢您下线。
+break
+}

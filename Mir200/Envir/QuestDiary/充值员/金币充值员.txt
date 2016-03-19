@@ -1,0 +1,105 @@
+(@@InPutString )
+[@金币充值员]
+{
+#say
+亲爱的玩家，为了服务器更好的发展，现已提供金币充值服务！\
+我们提供10元/100万金币、50元/550万金币、100元/1200万金币\
+不等的充值服务，请您选择充值或取回金币服务！\ \
+<前往充值页面进行充值/@wangdian>\ \
+<取回100万金币/@chong10>    <取回550万金币/@chong50>    <取回1200万金币/@chong100>\ \
+<暂不充值/@exit>\
+
+[@wangdian]
+#IF
+#ACT
+WebBrowser http://mir2.hypc120.com/shop/
+
+[@chong10]
+#IF
+checkGold 18900000
+#SAY
+对不起，您的身上的钱太多了，为了您的账户安全，\
+请您钱少一些了再来提取，我先为你保存起来！\ \ \ \
+<没问题，我过几日再来提钱！/@exit>
+#ELSESAY
+现在可以为您提供金币提现服务，您需要提现吗？\ 
+卡号和密码的输入形式请采用以下形式输入：\
+<XXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXX/FCOLOR=56>\
+卡号和密码均为20位字符，如有问题请联系管理员QQ：121472540\ \
+<输入卡号进行提现/@@InPutString0>     <暂时不用/@exit>
+
+[@InPutString0]
+#IF
+CHECKTEXTLIST ..\QuestDiary\充值\10元.txt <$STR(S0)>
+#ACT
+DELTEXTLIST ..\QuestDiary\充值\10元.txt <$STR(S0)>
+give 金币 1000000
+#SAY
+已为您办理100万金币提现，请注意查收！\ 
+<谢谢您的赞助，由您的支付，服务器会更加完善！/FCOLOR=251>\ \ \
+<感谢为我服务/@exit>
+#ELSESAY
+无法查找到您的充值卡密，请确认充值卡密是否正确！\ \ \ \ \
+<我再看看/@exit>
+
+
+[@chong50]
+#IF
+checkGold 14000000
+#SAY
+对不起，您的身上的钱太多了，为了您的账户安全，\
+请您钱少一些了再来提取，我先为你保存起来！\ \ \ \
+<没问题，我过几日再来提钱！/@exit>
+#ELSESAY
+现在可以为您提供金币提现服务，您需要提现吗？\ 
+卡号和密码的输入形式请采用以下形式输入：\
+<XXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXX/FCOLOR=56>\
+卡号和密码均为20位字符，如有问题请联系管理员QQ：121472540\ \
+<输入卡号进行提现/@@InPutString3>     <暂时不用/@exit>
+
+[@InPutString3]
+#IF
+CHECKTEXTLIST ..\QuestDiary\充值\50元.txt <$STR(S3)>
+#ACT
+DELTEXTLIST ..\QuestDiary\充值\50元.txt <$STR(S3)>
+give 金币 5500000
+#SAY
+已为您办理550万金币提现，请注意查收！\ 
+<谢谢您的赞助，由您的支付，服务器会更加完善！/FCOLOR=251>\ \ \
+<感谢为我服务/@exit>
+#ELSESAY
+无法查找到您的充值卡密，请确认充值卡密是否正确！\ \ \ \ \
+<我再看看/@exit>
+
+
+
+[@chong100]
+#IF
+checkGold 7500000
+#SAY
+对不起，您的身上的钱太多了，为了您的账户安全，\
+请您钱少一些了再来提取，我先为你保存起来！\ \ \ \
+<没问题，我过几日再来提钱！/@exit>
+#ELSESAY
+现在可以为您提供金币提现服务，您需要提现吗？\ 
+卡号和密码的输入形式请采用以下形式输入：\
+<XXXXXXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXX/FCOLOR=56>\
+卡号和密码均为20位字符，如有问题请联系管理员QQ：121472540\ \
+<输入卡号进行提现/@@InPutString4>     <暂时不用/@exit>
+
+[@InPutString4]
+#IF
+CHECKTEXTLIST ..\QuestDiary\充值\100元.txt <$STR(S4)>
+#ACT
+DELTEXTLIST ..\QuestDiary\充值\100元.txt <$STR(S4)>
+give 金币 12000000
+#SAY
+已为您办理1000万金币提现，请注意查收！\ 
+<谢谢您的赞助，由您的支付，服务器会更加完善！/FCOLOR=251>\ \ \
+<感谢为我服务/@exit>
+#ELSESAY
+无法查找到您的充值卡密，请确认充值卡密是否正确！\ \ \ \ \
+<我再看看/@exit>
+
+
+}
