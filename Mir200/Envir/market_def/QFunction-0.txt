@@ -62,17 +62,24 @@ CREATEMYSHOP <$STR(S1)>
 你的店铺开设失败，请再次尝试开设！
 
 ;挂机设置
+;开始挂机触发
 [@StartAutoOnline]
 #IF
+CHECKITEMW  挂机玉佩 1
 #ACT
 StartAutoPlayGame
 SENDMSG 6 开始挂机，使用快捷键“CTRL+ALT+X”停止挂机
+#ELSEACT
+SENDMSG 7 您还没有佩戴“挂机玉佩”，请佩戴后重新开始挂机。“挂机玉佩”可在游戏商城中购买。
 
+
+;停止挂机触发
 [@StopAutoOnline]
 #IF
 #ACT
 StopAutoPlayGame
 SENDMSG 6 命令停止挂机，使用快捷键“CTRL+ALT+X”开始挂机
+
 
 ;移动仓库
 [@StdModeFunc1]
@@ -89,8 +96,12 @@ SENDMSG 6 命令停止挂机，使用快捷键“CTRL+ALT+X”开始挂机
 请选择需要取回的物品！\ \ 
 <返回/@StdModeFunc1>
 
+
+
 ;1小时双倍
 [@StdModeFunc2]
+
+
 
 
 ;2小时双倍
@@ -121,6 +132,8 @@ MUL S6 3
 KILLMONEXPRATE <$STR(S6)> 3600
 SENDMSG 5 %s，已经购买了1个小时三倍经验时间，特别提醒中途下线，经验倍率会消失！
 break
+
+
 
 ;记忆石
 [@StdModeFunc5]
@@ -174,6 +187,7 @@ GOTO @StdModeFunc5
 TAGMAPINFO 6
 GOTO @StdModeFunc5
 
+
 ;2小时三倍
 [@StdModeFunc6]
 #ACT
@@ -187,6 +201,7 @@ KILLMONEXPRATE <$STR(S6)> 7200
 SENDMSG 0 %s，已经购买了2个小时三倍经验时间，特别提醒中途下线，经验倍率会消失！
 break
 
+
 ;月卡
 [@StdModeFunc7]
 #if
@@ -198,6 +213,7 @@ CALCVAR HUMAN 游戏天数 + 30
 SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
 take 游戏月卡 1
 SENDMSG 6 恭喜您充值月卡成功，游戏时间增加了30天，您现在的游戏天数为<$HUMAN(游戏天数)>天！
+
 #elseact
 CALCVAR HUMAN 游戏天数 + 30
 SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
@@ -221,7 +237,7 @@ CHECKGAMEGOLD > 1
 #ACT
 MOV S1 <$PARAMS>
 GAMEGOLD - 2
-GuildNoticeMsg 255 253 <$USERNAME>:<$STR(S1)>
+GuildNoticeMsg 255 253 [千里传音]<$USERNAME>:<$STR(S1)>
 #ELSEACT
 SENDMSG 7 使用千里传音需要支付2个元宝！
 

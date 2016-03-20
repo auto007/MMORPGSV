@@ -31,8 +31,10 @@ ISNEWHUMAN
 CALCVAR HUMAN 游戏天数 = 0
 SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
 GMEXECUTE SHUTUP SELF 9999
-SENDMSG 5 玩家〖%s〗您好，欢迎您来到<$SERVERNAME>进行游戏，请前往NPC“助理阿妍”处接取任务，开始你的传奇之旅！
+SENDMSG 5 玩家〖%s〗您好，欢迎您来到<$SERVERNAME>进行游戏，请前往NPC“助理阿妍”或“助理小敏”处接取任务，开始你的传奇之旅！
 sendmsg 7 为了净化游戏环境，服务器设置低于7级玩家不能发言，升至7级后将自动解除禁言！
+KILLMONEXPRATE 2000 172800
+SENDMSG 5 尊敬的玩家:按照你的等级看来，现在的经验倍数是20倍，还需要继续努力哦。
 break
 
 ;禁言

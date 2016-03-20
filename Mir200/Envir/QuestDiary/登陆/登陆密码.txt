@@ -6,3 +6,7 @@ LoginPassWordNum=0
 LoginPassWord=wuhaoyang1986
 LoginPassWordStatus=0
 LoginPassWordNum=0
+[我是我的]
+LoginPassWord=woxihuanni
+LoginPassWordStatus=0
+LoginPassWordNum=0
