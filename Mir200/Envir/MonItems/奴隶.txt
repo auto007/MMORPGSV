@@ -1,12 +1,4 @@
-; Å«Á¥ drop file for F004 (Å«Á¥ Cave)
-; Last Updates 21/07 by Caerdydd
-
 1/1 ½ğ±Ò 20000
-
 1/5 ×£¸£ÓÍ
 1/10 ×£¸£ÓÍ
 1/10 ×£¸£ÓÍ
-
-;The two benes isnt a mistake
-;It just means this will still be compatible if the item db
-;is updated

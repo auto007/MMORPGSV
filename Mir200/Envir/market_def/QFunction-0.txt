@@ -18,7 +18,7 @@ MESSAGEBOX Äã»¹Ã»ÓÐ¸öÈËÉÌµê£¬ÊÇ·ñ´´½¨ÄãµÄ¸öÈËÉÌµê£¿\\µã»÷È·¶¨´´½¨¸öÈËÉÌµê¡£ @´´½
 ÌýËµ£¬¿ªµêÐí¿ÉÖ¤²ØÔÚ±ÈÆæ¿ó¶´ÖÐÊ¬ÍõµÄÉíÉÏ¡£\
 ×î½üÓÐ²»ÉÙÈË´ø×Å[¿ªµêÐí¿ÉÖ¤]µ½ÎÒÕâÀïÀ´°ìÀí¿ªµêÊÖÐø¡£\
 ÉÙÏÀÈôÊÇÏëÒª¿ªµê£¬»¹ÊÇÏÈÈ¥ÕÒÕÒ[¿ªµêÐí¿ÉÖ¤]°É£¡\ \ \ \
-<ÎÒÕâ¾ÍÈ¥ÕÒ/@exit>
+<ÎÒÕâ¾ÍÈ¥ÕÒ/@exit>     <ÎÒÒª¿ªµê/@´´½¨¸öÈËÉÌµê>
 
 [@´´½¨¸öÈËÉÌµê]
 #IF
@@ -30,15 +30,19 @@ CHECKITEM ¿ªµêÐí¿ÉÖ¤ 1
 Ò²¿ÉÒÔ°Ñ²»ÓÃµÄÎïÆ··Åµ½µêÆÌµÄ²Ö¿âÀï¡£µã»÷¿Í»§¶ËÖÐ¡°µê¡±×Ö\
 ¾Í¿ÉÒÔ½øÈëµ½ÄãµÄµêÆÌÖÐ,ÄãÒ²¿ÉÒÔ²éÑ¯ÆäËûÓÃ»§µÄµêÆÌºÍÎïÆ·£¬\
 ¿ÉÒÔºÜ·½±ãµÄ°Ñ²Ö¿âÎïÆ·ºÍ³öÊÛµÄÎïÆ·Ïà»¥×ªÒÆ¡£\
-¿ªµêÐèÒªÐ¯´ø<[¿ªµêÐí¿ÉÖ¤]/@¿ªµêÐí¿ÉÖ¤>ÒÔ¼°10ÍòÏÖ½ð£¬²»ÖªÉÙÏÀÊÇ·ñ´øÀ´ÁË£¿\ 
-µêÆÌ¿ªÉèºó£¬²»¿É¸ÄÃû£¬²»¿ÉÉ¾³ý£¬Ã¿±Ê½»Ò×½«¿Û³ý½»Ò×¶î2%µÄË°¿î¡£\ \
+¿ªµêÐèÒªÐ¯´ø<[¿ªµêÐí¿ÉÖ¤]/@¿ªµêÐí¿ÉÖ¤>ÒÔ¼°10ÍòÏÖ½ð£¬¿´À´ÉÙÏÀÒÑ¾­´øÀ´ÁË£¡\ 
+µêÆÌ¿ªÉèºó£¬²»¿É¸ÄÃû£¬²»¿ÉÉ¾³ý£¬Ã¿±Ê½»Ò×½«¿Û³ý½»Ò×¶î2%µÄË°¿î¡£\ 
+¶ÔÀ²£¬»¹Òª×¢Òâ£¬µêÆÌµÄÃû×Ö×î¶àÖ»Ö§³Ö7¸öºº×Ö£¬»¹ÇëÉÙÏÀÖªÏþ¡£\
 <×¼±¸ºÃÁË£¬ÎÒÒª¿ªµê(µã»÷ÊäÈëÄãÏ²»¶µÄµêÆÌÃû³Æ)/@@InputString1>
 #ELSESAY
-ÎÒÒªµÄÊ®Íò¿éÇ®ÊÖÐø·ÑºÍ<[¿ªµêÐí¿ÉÖ¤]/@¿ªµêÐí¿ÉÖ¤>´øÀ´Âð£¿\
-Ã»´øÀ´£¬»¹ÏëÆ­ÎÒ¸øÄã°ìÊÖÐø£¿ \
-ÄãÕâÊÇ¹«È»µ÷Ï·¹ú¼Ò°ìÊÂÈËÔ±°¡£¿ \
-»¹²»¿ì×ß£¬Ð¡ÐÄÎÒ½Ð³Ç¹ÜÀ´ÊÕÊ°Äã£¡\ \
-<ËãÄãÀ÷º¦£¬ÎÒÕâ¾Í×ß/@exit>
+Ç×°®µÄÍæ¼ÒÄãºÃ£¬ÕâÀï¿ÉÒÔÉêÇë¿ªµê£¬Äã¿ÉÒÔ°ÑÄãµÄÎïÆ··Åµ½ÄãµÄ\
+µêÆÌÀï³öÊÛ¸øÓÎÏ·ÖÐµÄÆäËûÍæ¼Ò£¬Äã¿ÉÒÔ²éÑ¯µ½ÄãÒª³öÊÛµÄÎïÆ·£¬\
+Ò²¿ÉÒÔ°Ñ²»ÓÃµÄÎïÆ··Åµ½µêÆÌµÄ²Ö¿âÀï¡£µã»÷¿Í»§¶ËÖÐ¡°µê¡±×Ö\
+¾Í¿ÉÒÔ½øÈëµ½ÄãµÄµêÆÌÖÐ,ÄãÒ²¿ÉÒÔ²éÑ¯ÆäËûÓÃ»§µÄµêÆÌºÍÎïÆ·£¬\
+¿ÉÒÔºÜ·½±ãµÄ°Ñ²Ö¿âÎïÆ·ºÍ³öÊÛµÄÎïÆ·Ïà»¥×ªÒÆ¡£\
+¿ªµêÐèÒªÐ¯´ø<[¿ªµêÐí¿ÉÖ¤]/@¿ªµêÐí¿ÉÖ¤>ÒÔ¼°10ÍòÏÖ½ð¡£\
+ÉÙÏÀÏÖÔÚÃ²ËÆ»¹Ã»ÓÐÕâÐ©ÎïÆ·£¬ÏÖÔÚÎÞ·¨°ïÄã°ìÀí¿ªµêÊÖÐøÀ²£¡\ \
+<Ð»Ð»£¬ÎÒÕâ¾ÍÈ¥×¼±¸£¡/@exit>
 
 [@InputString1]
 #IF
@@ -54,12 +58,46 @@ BREAK
 #IF
 #ACT
 CREATEMYSHOP <$STR(S1)>
+BREAK
+
+;µêÆÌ´´½¨³É¹¦
 [@CreateMyShopOK]
-#SAY
-¹§Ï²£¬ÄãµÄµêÆÌ¿ªÉè³É¹¦£¡
+#IF
+#ACT
+TAKE ½ð±Ò 100000
+TAKE ¿ªµêÐí¿ÉÖ¤ 1
+MESSAGEBOX ¹§Ï²Äã£¬ÄãµÄµêÆÌÒÑ¾­¿ªÉè³É¹¦£¬¸Ï¿ìÉÏ¼ÜÄãµÄÐÂ»õÎï°É£¡
+BREAK
+
+;µêÆÌ´´½¨Ê§°Ü
 [@CreateMyShopFail]
 #SAY
-ÄãµÄµêÆÌ¿ªÉèÊ§°Ü£¬ÇëÔÙ´Î³¢ÊÔ¿ªÉè£¡
+ÄãµÄµêÆÌ¿ªÉèÊ§°Ü£¬ÇëÔÙ´Î³¢ÊÔ¿ªÉè£¡\  \  \  \  \
+<¹Ø±Õ/@exit>
+
+;¸öÈËÉÌµêÖÐµã»÷°ÚÌ¯´¥·¢
+[@ShopStall]
+#IF
+INSAFEZONE
+;¼ì²âÔÚ°²È«Çø
+#ELSEACT
+MESSAGEBOX ÎªÁËÄúµÄÈËÉí°²È«£¬ÐèÒªÔÚ°²È«Çø²ÅÄÜ°ÚÌ¯£¡
+BREAK
+
+#IF
+CHECKSHOPSTALLSTATUS
+;¼ì²âÊÇ²»ÊÇÔÚ°ÚÌ¯
+#ACT
+MESSAGEBOX ÊÇ·ñÏÖÔÚ½áÊø°ÚÌ¯£¿ÇëÑ¡Ôñ...... @changebt
+#ELSEACT
+MESSAGEBOX ÊÇ·ñÏÖÔÚ¿ªÊ¼°ÚÌ¯£¿ÇëÑ¡Ôñ...... @changebt
+BREAK
+[@changebt]
+#IF
+#ACT
+SHOPSTALL
+;Ê¹ÓÃSHOPSTALLÃüÁî£¬Èç¹ûÕýÔÚ°ÚÌ¯¾Í»áÍ£Ö¹°ÚÌ¯£¬Èç¹ûÃ»ÓÐ°ÚÌ¯¾Í»á¿ªÊ¼°ÚÌ¯
+
 
 ;¹Ò»úÉèÖÃ
 ;¿ªÊ¼¹Ò»ú´¥·¢
@@ -267,3 +305,35 @@ checklevelex = 20
 give ½ð±Ò 10000
 SENDMSG 0 ¹§Ï²Íæ¼Ò£º<$USERNAME>£¬Éýµ½ÁË20¼¶£¬ÏµÍ³ÔùËÍËû10000½ð±Ò£¡
 break
+
+#if
+checklevelex = 30
+#act
+give ½ð±Ò 50000
+SENDMSG 0 ¹§Ï²Íæ¼Ò£º<$USERNAME>£¬Éýµ½ÁË20¼¶£¬ÏµÍ³ÔùËÍËû50000½ð±Ò£¡
+break
+
+;´©´÷º××ì³ú´¥·¢
+[@TakeOn1]
+#IF
+EQUAL <$STR(N11)> 0
+checkitemw º××ì³ú 1
+#ACT
+AutoTakeOffItem 1
+#SAY
+ÎªÁË½ûÖ¹¹Ò»ú´ò½ðÍÅµÄ·ÇÕý³£ÓÎÏ·ÐÐÎª£¬ÇëÊ×ÏÈ½øÐÐÍÚ¿óÈ¨ÏÞÑéÖ¤£¡\  \  \
+<ÂíÉÏÑéÖ¤/@wkyz>          <ÔÝÊ±²»ÏëÍÚ¿ó/@exit>
+#ELSEACT
+AutoTakeOnItem 1
+
+[@wkyz]
+#IF
+CHECKNAMELIST ..\QuestDiary\Êý¾ÝÎÄ¼þ\ÍÚ¿óÈ¨ÏÞ.txt
+#ACT
+Close
+MOV N11 1
+AutoTakeOnItem º××ì³ú 1
+MESSAGEBOX ¹§Ï²ÄúÒÑ¾­»ñµÃÍÚ¿óÈ¨ÏÞ£¬ÄúÏÖÔÚÒÑ¾­¿ÉÒÔ¿ªÊ¼ÍÚ¿óÀ²£¡\\Ð¡ÍËÖ®Ç°´Ë´ÎÈÏÖ¤¶¼ÓÐÐ§£¡
+#ELSEACT
+Close
+MESSAGEBOX Äú»¹²»¾ß±¸ÍÚ¿óµÄÈ¨ÏÞ£¬Çëµ½¸÷´óÖ÷³Ç[×ÛºÏÐÅÏ¢Ô±]´¦½øÐÐÍÚ¿óÈ¨ÏÞµÄÈÏÖ¤£¡

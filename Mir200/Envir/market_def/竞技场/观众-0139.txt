@@ -1,6 +1,6 @@
 [@main]
 #IF
-checklevel 50
+checklevel 1000
 #SAY
 快去，准备好后...去战斗!\ \
 哦， 我想查看可以在哪些  <位置/@spawnlist>  怪物进行战斗？\

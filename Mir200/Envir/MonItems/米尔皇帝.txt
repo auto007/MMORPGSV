@@ -1,13 +1,4 @@
-; Mir King drop file for F004 (Å«Á¥ Cave)
-; Last Updates 22/07 by dapoldi
-
 1/1   ½ğÌõ
-
 1/1   ×£¸£ÓÍ
 1/1   ×£¸£ÓÍ
 1/1   ×£¸£ÓÍ
-
-;The two benes isnt a mistake
-;It just means this will still be compatible if the item db
-;is updated
-;amount set behind items doesnt seem to work.

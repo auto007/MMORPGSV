@@ -65,16 +65,19 @@ goto @充值检测
 #IF
 ISADMIN
 #ACT
+GIVEFENGHAO ≮游戏管理员≯
 SETRANKLEVELNAME %s\≮游戏管理员≯
-break
+CHANGENAMECOLOR 244
+SENDMSG 3 管理员上线，管理员角色身上和头顶均有紫色的“≮游戏管理员≯”字符标识，管理员不会向您询问账户密码、二级密码等信息，请注意辨别！祝您游戏愉快！
+
 
 ;沙城城主登陆
 #IF
 ISCASTLEMASTER
 #ACT
 SETRANKLEVELNAME %s\沙巴克城主
-SENDMSG 0 号令天下的沙城主『<$USERNAME>』进入了<$SERVERNAME>！
-break
+SENDMSG 3 号令天下的沙城主『<$USERNAME>』进入了<$SERVERNAME>！
+
 
 ;经验倍数
 #IF
@@ -111,6 +114,15 @@ CHECKLEVELEX > 40
 KILLMONEXPRATE 200 172800
 SENDMSG 5 尊敬的玩家:按照你的等级看来，现在的经验倍数是2倍，还需要继续努力哦，最高等级为50级。
 
+;判断是否装备鹤嘴锄
+#IF
+checkitemw 鹤嘴锄 1
+#ACT
+AutoTakeOffItem 1
+SENDMSG 6 由于您在上次退出时继续装备了[鹤嘴锄]物品，此次上线请重新验证您的挖矿权限，谢谢！
+
+
+
 [@充值检测]
 #if
 CHECKVAR HUMAN 游戏天数 < 1
@@ -119,7 +131,7 @@ map CZ001
 sendmsg 5 您的游戏天数已到期，请您在充值后进行游戏！
 #elseact
 sendmsg 7 尊敬的玩家<$USERNAME>您好，您的游戏时间还有<$HUMAN(游戏天数)>天，<$SERVERNAME>游戏制度，当天登陆游戏扣除一天游戏时间，当天不登录，您的游戏天数将不会减少，祝您游戏愉快！
-break
+
 
 [@游戏天数扣除]
 #if
@@ -130,5 +142,5 @@ SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
 #elseact
 CALCVAR HUMAN 游戏天数 - 1
 SAVEVAR HUMAN 游戏天数 ..\QuestDiary\数据文件\游戏天数.txt
-break
+
 }
